@@ -9,22 +9,22 @@ My Feelings Tracker is an Android application built with **Kotlin** and **Jetpac
 ## Features
 
 ### Current (Foundation)
-- 🎨 Modern Material 3 design with Jetpack Compose
-- 💾 Local Room database with Plutchik's emotion model (8 categories × 3 intensities)
-- 🔄 Reactive UI with Kotlin Flow and StateFlow
-- 🌍 Localization support (English and Russian)
-- 🔒 Auto backup configuration for data safety
-- ✅ Testing infrastructure (unit and instrumented tests)
-- 🔔 Notification permissions and boot receiver setup
+- Modern Material 3 design with Jetpack Compose
+- Local Room database with Plutchik's emotion model (8 categories × 3 intensities)
+- Reactive UI with Kotlin Flow and StateFlow
+- Localization support (English and Russian)
+- Auto backup configuration for data safety
+- Testing infrastructure (unit and instrumented tests)
+- Notification permissions and boot receiver setup
 
 ### Planned
-- 📊 Quick 2-tap emotion logging
-- 📅 Calendar view for reviewing past emotions
-- 📜 Chronological history list
-- ⚙️ Settings (display, alarms, data management)
-- ⏰ Daily reminders with WorkManager
-- 📤 Export/import data (CSV and PDF)
-- 🎨 Multiple color schemes
+- Quick 2-tap emotion logging
+- Calendar view for reviewing past emotions
+- Chronological history list
+- Settings (display, alarms, data management)
+- Daily reminders with WorkManager
+- Export/import data (CSV and PDF)
+- Multiple color schemes
 
 ## Technology Stack
 
@@ -46,7 +46,6 @@ The app follows the official Android architecture guidelines with a clean, layer
 - **UI Layer**: ViewModels + Composables organized by feature
 - **Data Layer**: Repository pattern + Room database + DataStore
 
-For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Project Structure
 
