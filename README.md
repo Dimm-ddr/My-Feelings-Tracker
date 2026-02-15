@@ -8,19 +8,35 @@ My Feelings Tracker is an Android application built with **Kotlin** and **Jetpac
 
 ## Features
 
-- 📊 Track emotions with intensity levels (1-10 scale)
-- 📝 Add notes to emotion logs
-- 🎨 Modern Material 3 design
-- 💾 Local storage with Room database
-- 🔄 Reactive UI with Kotlin Flow
+### Current (Foundation)
+- 🎨 Modern Material 3 design with Jetpack Compose
+- 💾 Local Room database with Plutchik's emotion model (8 categories × 3 intensities)
+- 🔄 Reactive UI with Kotlin Flow and StateFlow
+- 🌍 Localization support (English and Russian)
+- 🔒 Auto backup configuration for data safety
+- ✅ Testing infrastructure (unit and instrumented tests)
+- 🔔 Notification permissions and boot receiver setup
+
+### Planned
+- 📊 Quick 2-tap emotion logging
+- 📅 Calendar view for reviewing past emotions
+- 📜 Chronological history list
+- ⚙️ Settings (display, alarms, data management)
+- ⏰ Daily reminders with WorkManager
+- 📤 Export/import data (CSV and PDF)
+- 🎨 Multiple color schemes
 
 ## Technology Stack
 
 - **Language**: Kotlin
-- **UI**: Jetpack Compose with Material 3
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Database**: Room (SQLite)
+- **UI**: Jetpack Compose with Material 3 + Navigation
+- **Architecture**: MVVM (Model-View-ViewModel) + Repository pattern
+- **Database**: Room (SQLite) with TypeConverters
 - **Async**: Kotlin Coroutines & Flow
+- **Image Loading**: Coil for Compose
+- **Background Tasks**: WorkManager
+- **Preferences**: DataStore
+- **Testing**: JUnit, Truth, Compose UI Test, Espresso
 - **Build**: Gradle with Kotlin DSL
 
 ## Architecture
@@ -38,15 +54,23 @@ For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md).
 app/
 ├── src/main/
 │   ├── java/com/example/myfeelingstracker/
-│   │   ├── data/           # Data layer
-│   │   │   ├── database/   # Room database (Entity, DAO, Database)
+│   │   ├── data/
+│   │   │   ├── model/      # Emotion enums (8 categories, 3 intensities)
+│   │   │   ├── database/   # Room (Entity, DAO, Database, Converters)
 │   │   │   └── repository/ # Repository pattern
-│   │   └── ui/             # UI layer
-│   │       ├── viewmodels/ # ViewModels
-│   │       ├── screens/    # Composable screens
-│   │       ├── theme/      # Material 3 theme
-│   │       └── MainActivity.kt
-│   └── res/                # Resources
+│   │   ├── ui/
+│   │   │   ├── viewmodels/ # MVVM ViewModels
+│   │   │   ├── screens/    # Composable screens
+│   │   │   ├── theme/      # Material 3 theme
+│   │   │   └── MainActivity.kt
+│   │   └── receivers/      # BootReceiver for alarm restoration
+│   ├── res/
+│   │   ├── values/         # English strings
+│   │   ├── values-ru/      # Russian strings
+│   │   └── xml/            # Backup rules
+│   └── AndroidManifest.xml
+├── src/test/               # Unit tests
+└── src/androidTest/        # Instrumented tests
 ```
 
 ## Requirements
@@ -64,6 +88,12 @@ app/
 
 # Release build
 ./gradlew assembleRelease
+
+# Run unit tests
+./gradlew test
+
+# Run instrumented tests
+./gradlew connectedAndroidTest
 ```
 
 ## License
@@ -72,11 +102,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## About Plutchik's Wheel of Emotions
 
-The app is based on Robert Plutchik's theory of emotions, which organizes emotions into eight primary emotion dimensions:
-- Joy ↔ Sadness
-- Trust ↔ Disgust
-- Fear ↔ Anger
-- Surprise ↔ Anticipation
+The app is based on Robert Plutchik's psychoevolutionary theory of emotions, which organizes emotions into eight primary emotion categories, each with three intensity levels:
 
-These combine to form more complex emotional states, providing a comprehensive framework for emotional tracking.
+**The 8 Primary Emotions (with intensity levels):**
+- **Joy**: Serenity → Joy → Ecstasy
+- **Sadness**: Pensiveness → Sadness → Grief
+- **Anger**: Annoyance → Anger → Rage
+- **Fear**: Apprehension → Fear → Terror
+- **Trust**: Acceptance → Trust → Admiration
+- **Disgust**: Boredom → Disgust → Loathing
+- **Anticipation**: Interest → Anticipation → Vigilance
+- **Surprise**: Distraction → Surprise → Amazement
+
+This creates **24 distinct emotional states** (8 categories × 3 intensities) that provide a scientifically grounded framework for emotional tracking and self-awareness.
+
+For detailed information about the theory and its applications, see [docs/Project Overview.md](docs/Project%20Overview.md).
 

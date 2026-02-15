@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мой Трекер Чувств</string>
+    
+    <!-- Emotion Categories (Primary) -->
+    <string name="emotion_joy">Радость</string>
+    <string name="emotion_sadness">Грусть</string>
+    <string name="emotion_anger">Гнев</string>
+    <string name="emotion_fear">Страх</string>
+    <string name="emotion_trust">Доверие</string>
+    <string name="emotion_disgust">Отвращение</string>
+    <string name="emotion_anticipation">Предвкушение</string>
+    <string name="emotion_surprise">Удивление</string>
+    
+    <!-- Joy Family -->
+    <string name="emotion_serenity">Безмятежность</string>
+    <string name="emotion_joy_moderate">Радость</string>
+    <string name="emotion_ecstasy">Экстаз</string>
+    
+    <!-- Sadness Family -->
+    <string name="emotion_pensiveness">Задумчивость</string>
+    <string name="emotion_sadness_moderate">Грусть</string>
+    <string name="emotion_grief">Горе</string>
+    
+    <!-- Anger Family -->
+    <string name="emotion_annoyance">Раздражение</string>
+    <string name="emotion_anger_moderate">Гнев</string>
+    <string name="emotion_rage">Ярость</string>
+    
+    <!-- Fear Family -->
+    <string name="emotion_apprehension">Опасение</string>
+    <string name="emotion_fear_moderate">Страх</string>
+    <string name="emotion_terror">Ужас</string>
+    
+    <!-- Trust Family -->
+    <string name="emotion_acceptance">Принятие</string>
+    <string name="emotion_trust_moderate">Доверие</string>
+    <string name="emotion_admiration">Восхищение</string>
+    
+    <!-- Disgust Family -->
+    <string name="emotion_boredom">Скука</string>
+    <string name="emotion_disgust_moderate">Отвращение</string>
+    <string name="emotion_loathing">Омерзение</string>
+    
+    <!-- Anticipation Family -->
+    <string name="emotion_interest">Интерес</string>
+    <string name="emotion_anticipation_moderate">Предвкушение</string>
+    <string name="emotion_vigilance">Бдительность</string>
+    
+    <!-- Surprise Family -->
+    <string name="emotion_distraction">Растерянность</string>
+    <string name="emotion_surprise_moderate">Удивление</string>
+    <string name="emotion_amazement">Изумление</string>
+    
+    <!-- Intensity Levels -->
+    <string name="intensity_mild">Слабая</string>
+    <string name="intensity_moderate">Умеренная</string>
+    <string name="intensity_intense">Сильная</string>
+    
+    <!-- Main Screen -->
+    <string name="main_prompt">Как вы себя чувствуете?</string>
+    <string name="log_emotion">Записать эмоцию</string>
+    <string name="emotion_logged">Записано: %s</string>
+    <string name="logged_emotions_count">Записано эмоций: %d</string>
+    
+    <!-- Calendar & History -->
+    <string name="calendar">Календарь</string>
+    <string name="history">История</string>
+    <string name="no_entries">Эмоций пока не записано. Нажмите на колесо, чтобы начать.</string>
+    
+    <!-- Actions -->
+    <string name="edit">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="confirm">Подтвердить</string>
+    
+    <!-- Dialogs -->
+    <string name="delete_confirmation">Удалить эту запись? Это действие нельзя отменить.</string>
+    <string name="duplicate_warning">Вы уже записали %1$s в %2$s. Записать еще раз?</string>
+    <string name="yes_log_anyway">Да, записать</string>
+    
+    <!-- Settings -->
+    <string name="settings">Настройки</string>
+    <string name="alarms_reminders">Будильники и напоминания</string>
+    <string name="display">Отображение</string>
+    <string name="data_management">Управление данными</string>
+    <string name="behavior">Поведение</string>
+    <string name="about">О приложении</string>
+    
+    <!-- Alarms -->
+    <string name="enable_reminders">Включить ежедневные напоминания</string>
+    <string name="add_alarm">Добавить будильник</string>
+    <string name="notification_title">Время проверить себя</string>
+    <string name="notification_text">Как вы себя чувствуете?</string>
+    
+    <!-- Display Settings -->
+    <string name="color_scheme">Цветовая схема</string>
+    <string name="light_mode">Светлая</string>
+    <string name="dark_mode">Темная</string>
+    <string name="language">Язык</string>
+    
+    <!-- Data Management -->
+    <string name="export_data">Экспортировать данные</string>
+    <string name="import_data">Импортировать данные</string>
+    <string name="clear_all_data">Очистить все данные</string>
+    <string name="clear_confirmation">Это навсегда удалит все записи эмоций. Продолжить?</string>
+    <string name="backup_status">Статус автоматического резервного копирования</string>
+    
+    <!-- Behavior Settings -->
+    <string name="auto_close">Автоматически закрывать приложение после записи</string>
+    <string name="haptic_feedback">Тактильная обратная связь</string>
+    <string name="show_confirmations">Показывать запросы подтверждения</string>
+    
+    <!-- About -->
+    <string name="version">Версия %s</string>
+    <string name="license">Лицензия открытого исходного кода</string>
+    <string name="attribution">Авторство колеса эмоций</string>
+    <string name="attribution_text">Колесо эмоций основано на модели Плутчика</string>
+    
+    <!-- Content Descriptions (Accessibility) -->
+    <string name="cd_emotion_wheel">Колесо эмоций Плутчика</string>
+    <string name="cd_back">Назад</string>
+    <string name="cd_settings">Настройки</string>
+</resources>

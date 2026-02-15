@@ -1,4 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Feelings Tracker</string>
+    
+    <!-- Emotion Categories (Primary) -->
+    <string name="emotion_joy">Joy</string>
+    <string name="emotion_sadness">Sadness</string>
+    <string name="emotion_anger">Anger</string>
+    <string name="emotion_fear">Fear</string>
+    <string name="emotion_trust">Trust</string>
+    <string name="emotion_disgust">Disgust</string>
+    <string name="emotion_anticipation">Anticipation</string>
+    <string name="emotion_surprise">Surprise</string>
+    
+    <!-- Joy Family -->
+    <string name="emotion_serenity">Serenity</string>
+    <string name="emotion_joy_moderate">Joy</string>
+    <string name="emotion_ecstasy">Ecstasy</string>
+    
+    <!-- Sadness Family -->
+    <string name="emotion_pensiveness">Pensiveness</string>
+    <string name="emotion_sadness_moderate">Sadness</string>
+    <string name="emotion_grief">Grief</string>
+    
+    <!-- Anger Family -->
+    <string name="emotion_annoyance">Annoyance</string>
+    <string name="emotion_anger_moderate">Anger</string>
+    <string name="emotion_rage">Rage</string>
+    
+    <!-- Fear Family -->
+    <string name="emotion_apprehension">Apprehension</string>
+    <string name="emotion_fear_moderate">Fear</string>
+    <string name="emotion_terror">Terror</string>
+    
+    <!-- Trust Family -->
+    <string name="emotion_acceptance">Acceptance</string>
+    <string name="emotion_trust_moderate">Trust</string>
+    <string name="emotion_admiration">Admiration</string>
+    
+    <!-- Disgust Family -->
+    <string name="emotion_boredom">Boredom</string>
+    <string name="emotion_disgust_moderate">Disgust</string>
+    <string name="emotion_loathing">Loathing</string>
+    
+    <!-- Anticipation Family -->
+    <string name="emotion_interest">Interest</string>
+    <string name="emotion_anticipation_moderate">Anticipation</string>
+    <string name="emotion_vigilance">Vigilance</string>
+    
+    <!-- Surprise Family -->
+    <string name="emotion_distraction">Distraction</string>
+    <string name="emotion_surprise_moderate">Surprise</string>
+    <string name="emotion_amazement">Amazement</string>
+    
+    <!-- Intensity Levels -->
+    <string name="intensity_mild">Mild</string>
+    <string name="intensity_moderate">Moderate</string>
+    <string name="intensity_intense">Intense</string>
+    
+    <!-- Main Screen -->
+    <string name="main_prompt">How are you feeling?</string>
+    <string name="log_emotion">Log Emotion</string>
+    <string name="emotion_logged">Logged: %s</string>
+    <string name="logged_emotions_count">Logged emotions: %d</string>
+    
+    <!-- Calendar & History -->
+    <string name="calendar">Calendar</string>
+    <string name="history">History</string>
+    <string name="no_entries">No emotions logged yet. Tap the wheel to start.</string>
+    
+    <!-- Actions -->
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    
+    <!-- Dialogs -->
+    <string name="delete_confirmation">Delete this entry? This cannot be undone.</string>
+    <string name="duplicate_warning">You already logged %1$s at %2$s. Log another entry?</string>
+    <string name="yes_log_anyway">Yes, log anyway</string>
+    
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="alarms_reminders">Alarms &amp; Reminders</string>
+    <string name="display">Display</string>
+    <string name="data_management">Data Management</string>
+    <string name="behavior">Behavior</string>
+    <string name="about">About</string>
+    
+    <!-- Alarms -->
+    <string name="enable_reminders">Enable daily reminders</string>
+    <string name="add_alarm">Add alarm</string>
+    <string name="notification_title">Time to check in</string>
+    <string name="notification_text">How are you feeling?</string>
+    
+    <!-- Display Settings -->
+    <string name="color_scheme">Color scheme</string>
+    <string name="light_mode">Light</string>
+    <string name="dark_mode">Dark</string>
+    <string name="language">Language</string>
+    
+    <!-- Data Management -->
+    <string name="export_data">Export data</string>
+    <string name="import_data">Import data</string>
+    <string name="clear_all_data">Clear all data</string>
+    <string name="clear_confirmation">This will permanently delete all emotion logs. Continue?</string>
+    <string name="backup_status">Automatic backup status</string>
+    
+    <!-- Behavior Settings -->
+    <string name="auto_close">Auto-close app after logging</string>
+    <string name="haptic_feedback">Haptic feedback</string>
+    <string name="show_confirmations">Show confirmation prompts</string>
+    
+    <!-- About -->
+    <string name="version">Version %s</string>
+    <string name="license">Open Source License</string>
+    <string name="attribution">Emotion Wheel Attribution</string>
+    <string name="attribution_text">Emotion wheel based on Plutchik\'s Wheel of Emotions</string>
+    
+    <!-- Content Descriptions (Accessibility) -->
+    <string name="cd_emotion_wheel">Plutchik emotion wheel</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_settings">Settings</string>
 </resources>

@@ -13,10 +13,10 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface EmotionDao {
-    @Query("SELECT * FROM emotion_logs ORDER BY timestamp DESC")
+    @Query("SELECT * FROM ${DatabaseConstants.TABLE_EMOTION_LOGS} ORDER BY timestamp DESC")
     fun getAllEmotions(): Flow<List<EmotionLog>>
 
-    @Query("SELECT * FROM emotion_logs WHERE id = :id")
+    @Query("SELECT * FROM ${DatabaseConstants.TABLE_EMOTION_LOGS} WHERE id = :id")
     suspend fun getEmotionById(id: Long): EmotionLog?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -28,6 +28,6 @@ interface EmotionDao {
     @Delete
     suspend fun deleteEmotion(emotion: EmotionLog)
 
-    @Query("DELETE FROM emotion_logs")
+    @Query("DELETE FROM ${DatabaseConstants.TABLE_EMOTION_LOGS}")
     suspend fun deleteAllEmotions()
 }
