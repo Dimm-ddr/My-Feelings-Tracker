@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Backup rules for Android Auto Backup (API 23-30)
+    Specifies what data should be backed up to the user's Google Drive
+    
+    IMPORTANT: Database name must match DatabaseConstants.DATABASE_NAME
+    Current value: "emotion_database"
+-->
+<full-backup-content>
+    <!-- Include the Room database files -->
+    <include domain="database" path="emotion_database" />
+    <include domain="database" path="emotion_database-shm" />
+    <include domain="database" path="emotion_database-wal" />
+    
+    <!-- Include DataStore preferences -->
+    <include domain="file" path="datastore/" />
+    
+    <!-- Exclude cache and temporary files -->
+    <exclude domain="sharedpref" path="." />
+</full-backup-content>
