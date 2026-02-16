@@ -17,14 +17,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myfeelingstracker.R
 import com.example.myfeelingstracker.ui.theme.AppSpacings
-import com.example.myfeelingstracker.ui.viewmodels.MainViewModel
+import com.example.myfeelingstracker.ui.viewmodels.LogEmotionViewModel
 
 /**
  * Main screen of the application.
  * Minimal implementation - features to be built incrementally.
  */
 @Composable
-fun Modifier.MainScreen(viewModel: MainViewModel = viewModel()) {
+fun Modifier.MainScreen(viewModel: LogEmotionViewModel = viewModel()) {
     val emotions by viewModel.allEmotions.collectAsState()
 
     Box(
