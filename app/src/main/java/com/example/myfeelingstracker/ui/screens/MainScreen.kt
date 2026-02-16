@@ -14,9 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myfeelingstracker.R
+import com.example.myfeelingstracker.ui.theme.AppSpacings
 import com.example.myfeelingstracker.ui.viewmodels.MainViewModel
 
 /**
@@ -30,12 +30,12 @@ fun Modifier.MainScreen(viewModel: MainViewModel = viewModel()) {
     Box(
         modifier =
             fillMaxSize()
-                .padding(16.dp),
+                .padding(AppSpacings.Medium),
         contentAlignment = Alignment.Center
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(AppSpacings.Small)
         ) {
             Text(
                 text = stringResource(R.string.app_name),
@@ -51,7 +51,7 @@ fun Modifier.MainScreen(viewModel: MainViewModel = viewModel()) {
             Text(
                 text = stringResource(R.string.logged_emotions_count, emotions.size),
                 style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(top = 16.dp)
+                modifier = Modifier.padding(top = AppSpacings.Medium)
             )
         }
     }

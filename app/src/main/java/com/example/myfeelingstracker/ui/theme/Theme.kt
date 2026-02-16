@@ -5,6 +5,13 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+
+object AppSpacings {
+    val Small = 8.dp
+    val Medium = 16.dp
+    val Large = 32.dp
+}
 
 // Material 3 Light Color Scheme
 private val LightColorScheme = lightColorScheme(
@@ -37,10 +44,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun MyFeelingsTrackerTheme(
-    darkTheme: Boolean = false,
-    content: @Composable () -> Unit
-) {
+fun MyFeelingsTrackerTheme(darkTheme: Boolean = false, content: @Composable () -> Unit) {
     val colorScheme = if (darkTheme) {
         DarkColorScheme
     } else {

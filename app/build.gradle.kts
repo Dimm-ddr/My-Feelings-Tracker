@@ -105,5 +105,6 @@ dependencies {
     androidTestImplementation(libs.google.truth)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
