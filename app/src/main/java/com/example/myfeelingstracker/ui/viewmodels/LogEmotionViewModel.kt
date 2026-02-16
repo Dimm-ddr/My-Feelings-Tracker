@@ -15,16 +15,16 @@ import kotlinx.coroutines.launch
  * Main ViewModel following MVVM pattern.
  * Manages UI-related data and business logic.
  */
-class MainViewModel(application: Application) : AndroidViewModel(application) {
-    
+class LogEmotionViewModel(application: Application) : AndroidViewModel(application) {
+
     private val repository: EmotionRepository
-    
+
     val allEmotions: StateFlow<List<EmotionLog>>
 
     init {
         val emotionDao = EmotionDatabase.getDatabase(application).emotionDao()
         repository = EmotionRepository(emotionDao)
-        
+
         allEmotions = repository.allEmotions.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
