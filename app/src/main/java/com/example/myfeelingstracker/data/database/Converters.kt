@@ -10,22 +10,14 @@ import com.example.myfeelingstracker.data.model.IntensityLevel
  */
 class Converters {
     @TypeConverter
-    fun fromEmotionCategory(value: EmotionCategory): String {
-        return value.name
-    }
+    fun fromEmotionCategory(value: EmotionCategory): String = value.name
 
     @TypeConverter
-    fun toEmotionCategory(value: String): EmotionCategory {
-        return EmotionCategory.valueOf(value)
-    }
+    fun toEmotionCategory(value: String): EmotionCategory = EmotionCategory.valueOf(value)
 
     @TypeConverter
-    fun fromIntensityLevel(value: IntensityLevel): String {
-        return value.name
-    }
+    fun fromIntensityLevel(value: IntensityLevel): String = value.name
 
     @TypeConverter
-    fun toIntensityLevel(value: String): IntensityLevel {
-        return IntensityLevel.valueOf(value)
-    }
+    fun toIntensityLevel(value: String): IntensityLevel = IntensityLevel.valueOf(value)
 }

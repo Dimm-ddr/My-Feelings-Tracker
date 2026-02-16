@@ -24,15 +24,13 @@ import com.example.myfeelingstracker.ui.viewmodels.MainViewModel
  * Minimal implementation - features to be built incrementally.
  */
 @Composable
-fun MainScreen(
-    viewModel: MainViewModel = viewModel()
-) {
+fun Modifier.MainScreen(viewModel: MainViewModel = viewModel()) {
     val emotions by viewModel.allEmotions.collectAsState()
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+        modifier =
+            fillMaxSize()
+                .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
         Column(

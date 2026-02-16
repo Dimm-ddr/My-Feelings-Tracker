@@ -13,7 +13,7 @@ object DatabaseConstants {
      * - res/xml/data_extraction_rules.xml
      */
     const val DATABASE_NAME = "emotion_database"
-    
+
     /**
      * Name of the emotion logs table.
      * This must match the tableName in EmotionLog entity and SQL queries.

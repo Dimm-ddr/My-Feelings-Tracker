@@ -17,18 +17,18 @@ abstract class EmotionDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: EmotionDatabase? = null
+        private var instance: EmotionDatabase? = null
 
-        fun getDatabase(context: Context): EmotionDatabase {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    EmotionDatabase::class.java,
-                    DatabaseConstants.DATABASE_NAME
-                ).build()
-                INSTANCE = instance
-                instance
-            }
+        fun getDatabase(context: Context): EmotionDatabase = instance ?: synchronized(this) {
+            val dbInstance =
+                Room
+                    .databaseBuilder(
+                        context.applicationContext,
+                        EmotionDatabase::class.java,
+                        DatabaseConstants.DATABASE_NAME
+                    ).build()
+            instance = dbInstance
+            dbInstance
         }
     }
 }

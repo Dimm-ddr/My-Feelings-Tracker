@@ -15,7 +15,7 @@ import com.example.myfeelingstracker.data.model.IntensityLevel
  * @property timestamp When the emotion was logged (in milliseconds, UTC)
  * @property createdAt When the record was created (for tracking)
  * @property lastModified When the record was last edited (null if never edited)
- * 
+ *
  * FUTURE EXPANSION: To support Plutchik's 8 blended emotions (Love, Submission, Awe, etc.):
  * - Add blended emotion types to EmotionCategory enum
  * - Change intensityLevel to nullable (requires Room migration v1→v2)

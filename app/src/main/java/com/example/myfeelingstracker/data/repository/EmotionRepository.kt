@@ -9,16 +9,11 @@ import kotlinx.coroutines.flow.Flow
  * Provides a clean API for data access to the rest of the application.
  */
 class EmotionRepository(private val emotionDao: EmotionDao) {
-
     val allEmotions: Flow<List<EmotionLog>> = emotionDao.getAllEmotions()
 
-    suspend fun getEmotionById(id: Long): EmotionLog? {
-        return emotionDao.getEmotionById(id)
-    }
+    suspend fun getEmotionById(id: Long): EmotionLog? = emotionDao.getEmotionById(id)
 
-    suspend fun insertEmotion(emotion: EmotionLog): Long {
-        return emotionDao.insertEmotion(emotion)
-    }
+    suspend fun insertEmotion(emotion: EmotionLog): Long = emotionDao.insertEmotion(emotion)
 
     suspend fun updateEmotion(emotion: EmotionLog) {
         emotionDao.updateEmotion(emotion)

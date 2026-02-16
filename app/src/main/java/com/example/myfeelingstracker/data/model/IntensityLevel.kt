@@ -5,7 +5,7 @@ package com.example.myfeelingstracker.data.model
  * From outer ring (mild) to inner ring (intense).
  */
 enum class IntensityLevel {
-    MILD,      // Outer ring - gentler forms
-    MODERATE,  // Middle ring - primary emotion
-    INTENSE    // Inner ring - stronger forms
+    MILD, // Outer ring - gentler forms
+    MODERATE, // Middle ring - primary emotion
+    INTENSE // Inner ring - stronger forms
 }
