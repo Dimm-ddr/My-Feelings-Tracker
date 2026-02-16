@@ -14,15 +14,14 @@ class EmotionLogTest {
     fun `EmotionLog creation with all fields`() {
         val timestamp = System.currentTimeMillis()
         val created = timestamp - 1000
-        val modified = timestamp
-        
+
         val log = EmotionLog(
             id = 1L,
             emotionCategory = EmotionCategory.JOY,
             intensityLevel = IntensityLevel.MODERATE,
             timestamp = timestamp,
             createdAt = created,
-            lastModified = modified
+            lastModified = timestamp
         )
 
         assertThat(log.id).isEqualTo(1L)
@@ -30,7 +29,7 @@ class EmotionLogTest {
         assertThat(log.intensityLevel).isEqualTo(IntensityLevel.MODERATE)
         assertThat(log.timestamp).isEqualTo(timestamp)
         assertThat(log.createdAt).isEqualTo(created)
-        assertThat(log.lastModified).isEqualTo(modified)
+        assertThat(log.lastModified).isEqualTo(timestamp)
     }
 
     @Test
@@ -70,7 +69,7 @@ class EmotionLogTest {
             createdAt = timestamp,
             lastModified = null
         )
-        
+
         val log2 = EmotionLog(
             id = 1L,
             emotionCategory = EmotionCategory.FEAR,
@@ -93,7 +92,7 @@ class EmotionLogTest {
             createdAt = 1000L,
             lastModified = null
         )
-        
+
         val modified = original.copy(
             intensityLevel = IntensityLevel.INTENSE,
             lastModified = 2000L

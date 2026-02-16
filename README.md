@@ -37,7 +37,7 @@ My Feelings Tracker is an Android application built with **Kotlin** and **Jetpac
 - **Background Tasks**: WorkManager
 - **Preferences**: DataStore
 - **Testing**: JUnit, Truth, Compose UI Test, Espresso
-- **Build**: Gradle with Kotlin DSL
+- **Build**: Gradle with Kotlin DSL + Version Catalog (`gradle/libs.versions.toml`)
 
 ## Architecture
 
@@ -76,7 +76,7 @@ app/
 
 - Android Studio (latest stable)
 - JDK 17 or higher
-- Android SDK API 34
+- Android SDK API 36
 - Min Android version: 8.0 (API 26)
 
 ## Building

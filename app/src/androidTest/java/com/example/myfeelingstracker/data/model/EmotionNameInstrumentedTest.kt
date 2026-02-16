@@ -38,7 +38,7 @@ class EmotionNameInstrumentedTest {
     @Test
     fun getNamesForCategory_returnsThreeNonEmptyStrings() {
         val result = EmotionName.getNamesForCategory(context, EmotionCategory.ANGER)
-        
+
         assertThat(result).hasSize(3)
         result.values.forEach { name ->
             assertThat(name).isNotEmpty()
@@ -48,15 +48,15 @@ class EmotionNameInstrumentedTest {
     @Test
     fun allEmotionCombinations_haveUniqueLocalizedNames() {
         val allNames = mutableSetOf<String>()
-        
-        EmotionCategory.values().forEach { category ->
-            IntensityLevel.values().forEach { intensity ->
+
+        EmotionCategory.entries.forEach { category ->
+            IntensityLevel.entries.forEach { intensity ->
                 val name = EmotionName.getName(context, category, intensity)
                 assertThat(allNames).doesNotContain(name)
                 allNames.add(name)
             }
         }
-        
+
         // Should have 8 categories × 3 intensities = 24 unique names
         assertThat(allNames).hasSize(24)
     }
@@ -64,12 +64,12 @@ class EmotionNameInstrumentedTest {
     @Test
     fun allEmotionNames_areNotResourceIds() {
         // Verify we're getting actual strings, not unresolved resource IDs
-        EmotionCategory.values().forEach { category ->
-            IntensityLevel.values().forEach { intensity ->
+        EmotionCategory.entries.forEach { category ->
+            IntensityLevel.entries.forEach { intensity ->
                 val name = EmotionName.getName(context, category, intensity)
                 // Unresolved resource IDs look like "No resource found for 0x..."
                 assertThat(name).doesNotContain("No resource found")
-                assertThat(name).doesNotStartWith("0x")
+                assertThat(name.startsWith("0x")).isFalse()
             }
         }
     }
