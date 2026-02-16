@@ -3,6 +3,8 @@ package com.example.myfeelingstracker.data.model
 import android.content.Context
 import androidx.annotation.StringRes
 import com.example.myfeelingstracker.R
+import kotlin.collections.mapOf
+import kotlin.to
 
 /**
  * Maps emotion categories and intensity levels to their localized string resources
