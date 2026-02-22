@@ -1,65 +1,25 @@
 package com.example.myfeelingstracker.data.model
 
-import com.example.myfeelingstracker.R
 import com.google.common.truth.Truth.assertThat
+import org.junit.Assert.assertThrows
 import org.junit.Test
 
 /**
- * Unit tests for EmotionName utility.
- * Tests the mapping between emotion categories, intensity levels, and string resource IDs.
- *
- * Note: These tests verify string resource ID mappings, not the actual localized strings.
- * For testing actual localized strings, use instrumented tests with Context.
+ * Unit tests for EmotionName structure.
+ * These tests avoid duplicating the full mapping contract from production code.
  */
 class EmotionNameTest {
 
     @Test
-    fun `getStringResId returns correct resource ID for joy and mild intensity`() {
-        val result = EmotionName.getStringResId(EmotionCategory.JOY, IntensityLevel.MILD)
-        assertThat(result).isEqualTo(R.string.emotion_serenity)
-    }
-
-    @Test
-    fun `getStringResId returns correct resource ID for joy and moderate intensity`() {
-        val result = EmotionName.getStringResId(EmotionCategory.JOY, IntensityLevel.MODERATE)
-        assertThat(result).isEqualTo(R.string.emotion_joy_moderate)
-    }
-
-    @Test
-    fun `getStringResId returns correct resource ID for joy and intense intensity`() {
-        val result = EmotionName.getStringResId(EmotionCategory.JOY, IntensityLevel.INTENSE)
-        assertThat(result).isEqualTo(R.string.emotion_ecstasy)
-    }
-
-    @Test
-    fun `getStringResId returns correct resource ID for anger and mild intensity`() {
-        val result = EmotionName.getStringResId(EmotionCategory.ANGER, IntensityLevel.MILD)
-        assertThat(result).isEqualTo(R.string.emotion_annoyance)
-    }
-
-    @Test
-    fun `getStringResIdsForCategory returns all three intensities for joy`() {
-        val result = EmotionName.getStringResIdsForCategory(EmotionCategory.JOY)
-
-        assertThat(result).hasSize(3)
-        assertThat(result[IntensityLevel.MILD]).isEqualTo(R.string.emotion_serenity)
-        assertThat(result[IntensityLevel.MODERATE]).isEqualTo(R.string.emotion_joy_moderate)
-        assertThat(result[IntensityLevel.INTENSE]).isEqualTo(R.string.emotion_ecstasy)
-    }
-
-    @Test
-    fun `getStringResIdsForCategory returns all three intensities for all categories`() {
+    fun `getStringResIdsForCategory returns exactly all intensity levels for every category`() {
         EmotionCategory.entries.forEach { category ->
             val result = EmotionName.getStringResIdsForCategory(category)
-            assertThat(result).hasSize(3)
-            assertThat(result).containsKey(IntensityLevel.MILD)
-            assertThat(result).containsKey(IntensityLevel.MODERATE)
-            assertThat(result).containsKey(IntensityLevel.INTENSE)
+            assertThat(result.keys).containsExactlyElementsIn(IntensityLevel.entries)
         }
     }
 
     @Test
-    fun `all emotion combinations have unique string resource IDs`() {
+    fun `all category and intensity combinations map to unique resource IDs`() {
         val allResIds = mutableSetOf<Int>()
 
         EmotionCategory.entries.forEach { category ->
@@ -70,13 +30,34 @@ class EmotionNameTest {
             }
         }
 
-        // Should have 8 categories × 3 intensities = 24 unique resource IDs
-        assertThat(allResIds).hasSize(24)
+        assertThat(allResIds).hasSize(EmotionCategory.entries.size * IntensityLevel.entries.size)
     }
 
-    @Test(expected = IllegalArgumentException::class)
-    fun `getStringResId throws exception for invalid combination`() {
-        // This should never happen in production, but test defensive programming
-        // Note: Can't actually create invalid enum values, so this documents the behavior
+    @Test
+    fun `resolveStringResId throws IllegalArgumentException when pair is missing from source map`() {
+        val categoryUnderTest = EmotionCategory.JOY
+        val intensityUnderTest = IntensityLevel.MODERATE
+        val completeSource =
+            EmotionCategory.entries.associateWith { category ->
+                EmotionName.getStringResIdsForCategory(category)
+            }
+        val brokenSource =
+            completeSource.toMutableMap().apply {
+                put(
+                    categoryUnderTest,
+                    completeSource
+                        .getValue(categoryUnderTest)
+                        .filterKeys { intensity -> intensity != intensityUnderTest }
+                )
+            }
+
+        val exception =
+            assertThrows(IllegalArgumentException::class.java) {
+                EmotionName.resolveStringResId(categoryUnderTest, intensityUnderTest, brokenSource)
+            }
+
+        assertThat(exception)
+            .hasMessageThat()
+            .contains("Invalid emotion combination: $categoryUnderTest, $intensityUnderTest")
     }
 }

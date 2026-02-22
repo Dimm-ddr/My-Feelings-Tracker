@@ -46,6 +46,30 @@ class EmotionNameInstrumentedTest {
     }
 
     @Test
+    fun getName_matchesContextStringFromResolvedResourceId() {
+        EmotionCategory.entries.forEach { category ->
+            IntensityLevel.entries.forEach { intensity ->
+                val expected = context.getString(EmotionName.getStringResId(category, intensity))
+                val actual = EmotionName.getName(context, category, intensity)
+                assertThat(actual).isEqualTo(expected)
+            }
+        }
+    }
+
+    @Test
+    fun getNamesForCategory_matchesGetNameForEachIntensity() {
+        EmotionCategory.entries.forEach { category ->
+            val namesByIntensity = EmotionName.getNamesForCategory(context, category)
+            assertThat(namesByIntensity.keys).containsExactlyElementsIn(IntensityLevel.entries)
+
+            IntensityLevel.entries.forEach { intensity ->
+                assertThat(namesByIntensity.getValue(intensity))
+                    .isEqualTo(EmotionName.getName(context, category, intensity))
+            }
+        }
+    }
+
+    @Test
     fun allEmotionCombinations_haveUniqueLocalizedNames() {
         val allNames = mutableSetOf<String>()
 

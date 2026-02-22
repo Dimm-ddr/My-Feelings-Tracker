@@ -98,6 +98,15 @@ esac
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
+# If JAVA_HOME is not set, read jdk.dir from local.properties (project-local, gitignored).
+# Use forward slashes or the standard .properties escaped format (C\:\\path\\to\\jdk).
+if [ -z "$JAVA_HOME" ] && [ -f "$APP_HOME/local.properties" ]; then
+    local_jdk=$(grep -E '^jdk\.dir=' "$APP_HOME/local.properties" | sed 's/^jdk\.dir=//' | tr -d '\r' | sed 's/\\:/:/g; s/\\\\/\//g')
+    if [ -n "$local_jdk" ]; then
+        JAVA_HOME="$local_jdk"
+        export JAVA_HOME
+    fi
+fi
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then

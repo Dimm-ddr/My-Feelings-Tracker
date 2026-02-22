@@ -36,6 +36,16 @@ for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 @rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
 
+@rem If JAVA_HOME is not set, read jdk.dir from local.properties (project-local, gitignored).
+@rem Use forward slashes in local.properties: jdk.dir=C:/Program Files/Android/Android Studio/jbr
+if not defined JAVA_HOME (
+    if exist "%APP_HOME%local.properties" (
+        for /f "usebackq tokens=1,* delims==" %%a in (`findstr /b "jdk.dir=" "%APP_HOME%local.properties"`) do (
+            if not "%%b"=="" set "JAVA_HOME=%%b"
+        )
+    )
+)
+
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
 

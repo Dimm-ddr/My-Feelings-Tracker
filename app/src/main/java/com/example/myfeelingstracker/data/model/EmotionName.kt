@@ -72,7 +72,14 @@ object EmotionName {
      */
     @StringRes
     fun getStringResId(category: EmotionCategory, intensity: IntensityLevel): Int =
-        emotionStringResIds[category]?.get(intensity)
+        resolveStringResId(category, intensity)
+
+    @StringRes
+    internal fun resolveStringResId(
+        category: EmotionCategory,
+        intensity: IntensityLevel,
+        source: Map<EmotionCategory, Map<IntensityLevel, Int>> = emotionStringResIds
+    ): Int = source[category]?.get(intensity)
             ?: throw IllegalArgumentException("Invalid emotion combination: $category, $intensity")
 
     /**
