@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "io.github.dimm_ddr.myfeelingstracker"
+    namespace = "io.github.dimmddr.myfeelingstracker"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "io.github.dimm_ddr.myfeelingstracker"
+        applicationId = "io.github.dimmddr.myfeelingstracker"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
