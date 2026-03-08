@@ -23,11 +23,11 @@ package io.github.dimmddr.myfeelingstracker.data.model
  */
 enum class EmotionCategory {
     JOY, // Serenity -> Joy -> Ecstasy
-    SADNESS, // Pensiveness -> Sadness -> Grief
-    ANGER, // Annoyance -> Anger -> Rage
-    FEAR, // Apprehension -> Fear -> Terror
-    TRUST, // Acceptance -> Trust -> Admiration
-    DISGUST, // Boredom -> Disgust -> Loathing
     ANTICIPATION, // Interest -> Anticipation -> Vigilance
-    SURPRISE // Distraction -> Surprise -> Amazement
+    ANGER, // Annoyance -> Anger -> Rage
+    DISGUST, // Boredom -> Disgust -> Loathing
+    SADNESS, // Pensiveness -> Sadness -> Grief
+    SURPRISE, // Distraction -> Surprise -> Amazement
+    FEAR, // Apprehension -> Fear -> Terror
+    TRUST // Acceptance -> Trust -> Admiration
 }

@@ -1,43 +1,51 @@
 package io.github.dimmddr.myfeelingstracker.ui.wheel
 
-import kotlin.math.PI
+import io.github.dimmddr.myfeelingstracker.data.model.EmotionCategory
 import kotlin.math.atan2
 
-// Number of primary emotion sectors.
-// Changing this value automatically adjusts all derived geometry.
-const val SECTOR_COUNT = 8
+// Primary sector borders, evenly spaced starting from -π (step = π/4)
+val SECTOR_BORDERS = doubleArrayOf(
+    -2.356194490192345,
+    -1.570796326794896,
+    -0.785398163397448,
+    0.0,
+    0.785398163397448,
+    1.570796326794896,
+    2.356194490192345,
+    3.141592653589793
+)
 
-// Angular width of each sector in radians: 2π / 8 = π/4
-const val SECTOR_ANGLE = 2.0 * PI / SECTOR_COUNT
-
-// Borders between sectors in radians, evenly spaced starting from 0.
-// Sector i covers the range [SECTOR_BORDERS[i], SECTOR_BORDERS[(i+1) % SECTOR_COUNT]).
-//
-// Computed values (i * π/4):
-//   0: 0.0000000000000000
-//   1: 0.7853981633974483
-//   2: 1.5707963267948966
-//   3: 2.3561944901923448
-//   4: 3.1415926535897931
-//   5: 3.9269908169872414
-//   6: 4.7123889803846897
-//   7: 5.4977871437821380
-val SECTOR_BORDERS = DoubleArray(SECTOR_COUNT) { i -> i * SECTOR_ANGLE }
+// Blended emotion sector borders, offset by π/8 from primary borders (step = π/4)
+val BLENDED_SECTOR_BORDERS = doubleArrayOf(
+    -2.748893571891069,
+    -1.963495408493620,
+    -1.178097245096172,
+    -0.392699081698724,
+    0.392699081698724,
+    1.178097245096172,
+    1.963495408493621,
+    2.748893571891068
+)
 
 // Returns the sector index (0 until SECTOR_COUNT) for a given angle in radians.
 // The angle is expected as returned by atan2 (range -π to π).
 fun sectorForAngle(angle: Double): Int {
-    val normalized = (angle + 2.0 * PI) % (2.0 * PI)
-    return (normalized / SECTOR_ANGLE).toInt()
+    for (i in 0 until SECTOR_BORDERS.size) {
+        if (angle < SECTOR_BORDERS[i]) return i
+    }
+    return 0
 }
 
-// Convenience overload accepting Float (as returned by Compose Offset / atan2 with Float args).
 fun sectorForAngle(angle: Float): Int = sectorForAngle(angle.toDouble())
 
-// Returns the angle in radians of the center of the given sector.
-fun sectorCenterAngle(sector: Int): Double =
-    SECTOR_BORDERS[sector % SECTOR_COUNT] + SECTOR_ANGLE / 2.0
+// Returns the EmotionCategory for a given angle in radians.
+fun categoryForAngle(angle: Double): EmotionCategory =
+    EmotionCategory.entries[sectorForAngle(angle)]
 
 // Returns the sector index for a tap offset relative to the wheel center.
 // dx and dy are the horizontal and vertical distances from center (positive Y is down).
 fun sectorForOffset(dx: Float, dy: Float): Int = sectorForAngle(atan2(dy, dx))
+
+// Returns the EmotionCategory for a tap offset relative to the wheel center.
+fun categoryForOffset(dx: Float, dy: Float): EmotionCategory =
+    EmotionCategory.entries[sectorForOffset(dx, dy)]
