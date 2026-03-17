@@ -86,6 +86,7 @@ dependencies {
 
     // Coil - Image loading
     implementation(libs.io.coil.compose)
+    implementation(libs.io.coil.svg)
 
     // Navigation
     implementation(libs.androidx.navigation.compose)

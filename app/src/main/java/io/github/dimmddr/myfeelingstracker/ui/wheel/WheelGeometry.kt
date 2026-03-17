@@ -3,7 +3,7 @@ package io.github.dimmddr.myfeelingstracker.ui.wheel
 import io.github.dimmddr.myfeelingstracker.data.model.EmotionCategory
 import kotlin.math.atan2
 
-// Primary sector borders, evenly spaced starting from -π (step = π/4)
+// Primary sector borders, evenly spaced starting from -3π/4 (step = π/4)
 val SECTOR_BORDERS = doubleArrayOf(
     -2.356194490192345,
     -1.570796326794896,
@@ -27,7 +27,7 @@ val BLENDED_SECTOR_BORDERS = doubleArrayOf(
     2.748893571891068
 )
 
-// Returns the sector index (0 until SECTOR_COUNT) for a given angle in radians.
+// Returns the sector index (0 until SECTOR_BORDERS.size) for a given angle in radians.
 // The angle is expected as returned by atan2 (range -π to π).
 fun sectorForAngle(angle: Double): Int {
     for (i in 0 until SECTOR_BORDERS.size) {

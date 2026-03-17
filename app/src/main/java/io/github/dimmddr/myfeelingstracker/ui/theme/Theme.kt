@@ -22,9 +22,9 @@ private val LightColorScheme = lightColorScheme(
     secondary = Color(0xFF03DAC6),
     onSecondary = Color.Black,
     secondaryContainer = Color(0xFF018786),
-    background = Color.White,
+    background = Color(0xFFF0EDE8),
     onBackground = Color.Black,
-    surface = Color.White,
+    surface = Color(0xFFF0EDE8),
     onSurface = Color.Black
 )
 

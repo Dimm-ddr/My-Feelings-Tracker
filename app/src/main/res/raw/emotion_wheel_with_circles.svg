@@ -1,6 +1,8 @@
 <svg width="939" height="944" viewBox="149 217 621 621" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_0_1)">
 <g clip-path="url(#clip1_0_1)">
+<path d="M554.821 733.826C682.382 680.989 742.958 534.747 690.12 407.186C637.283 279.624 491.041 219.049 363.48 271.887C235.918 324.724 175.343 470.966 228.181 598.527C281.018 726.088 427.26 786.664 554.821 733.826Z" stroke="black" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M531.095 676.546C627.021 636.812 672.574 526.838 632.84 430.912C593.106 334.986 483.132 289.433 387.206 329.167C291.28 368.901 245.727 478.875 285.461 574.801C325.195 670.727 435.169 716.28 531.095 676.546Z" stroke="black" stroke-width="2" stroke-dasharray="4 4"/>
 <mask id="mask0_0_1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-10" y="56" width="939" height="944">
 <path d="M651.084 56.216L-9.49033 329.835L267.955 999.647L928.529 726.029L651.084 56.216Z" fill="white"/>
 </mask>
