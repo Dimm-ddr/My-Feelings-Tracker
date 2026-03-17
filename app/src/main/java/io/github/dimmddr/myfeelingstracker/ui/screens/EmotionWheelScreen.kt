@@ -22,12 +22,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.sp
 import coil.ImageLoader
@@ -37,14 +35,12 @@ import coil.request.ImageRequest
 import io.github.dimmddr.myfeelingstracker.R
 import io.github.dimmddr.myfeelingstracker.data.model.EmotionCategory
 import io.github.dimmddr.myfeelingstracker.ui.theme.AppSpacings
+import io.github.dimmddr.myfeelingstracker.ui.theme.AppWheelStyle
 import io.github.dimmddr.myfeelingstracker.ui.wheel.BLENDED_SECTOR_BORDERS
 import io.github.dimmddr.myfeelingstracker.ui.wheel.categoryForOffset
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
-
-// Fraction of image width from center to label. Tune to move labels in/out along petals.
-private const val TEXT_RADIUS_FRACTION = 0.27f
 
 @Composable
 fun EmotionWheelScreen() {
@@ -85,10 +81,10 @@ fun EmotionWheelScreen() {
         )
         Canvas(modifier = Modifier.fillMaxSize()) {
             val imageWidthPx = size.width - AppSpacings.Small.toPx() * 2
-            val textRadiusPx = imageWidthPx * TEXT_RADIUS_FRACTION
+            val textRadiusPx = imageWidthPx * AppWheelStyle.LabelRadiusFraction
             val labelStyle = TextStyle(
-                fontSize = (imageWidthPx * 0.038f / density).sp,
-                fontWeight = FontWeight.Medium
+                fontSize = (imageWidthPx * AppWheelStyle.LabelFontSizeMultiplier / density).sp,
+                fontWeight = AppWheelStyle.LabelFontWeight
             )
             val centerX = size.width / 2f
             val centerY = size.height / 2f
@@ -107,7 +103,7 @@ fun EmotionWheelScreen() {
                 }) {
                     drawText(
                         textLayoutResult = measured,
-                        color = Color.Black,
+                        color = AppWheelStyle.LabelColor,
                         topLeft = Offset(
                             x - measured.size.width / 2f,
                             y - measured.size.height / 2f

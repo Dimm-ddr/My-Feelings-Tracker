@@ -5,12 +5,20 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 object AppSpacings {
     val Small = 8.dp
     val Medium = 16.dp
     val Large = 32.dp
+}
+
+object AppWheelStyle {
+    const val LabelRadiusFraction = 0.27f
+    const val LabelFontSizeMultiplier = 0.038f
+    val LabelFontWeight = FontWeight.Medium
+    val LabelColor = Color.Black
 }
 
 // Material 3 Light Color Scheme
