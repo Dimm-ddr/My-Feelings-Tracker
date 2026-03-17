@@ -22,12 +22,12 @@ package io.github.dimmddr.myfeelingstracker.data.model
  * 4. Update EmotionName utility to handle blended emotions
  */
 enum class EmotionCategory {
-    JOY, // Serenity -> Joy -> Ecstasy
     ANTICIPATION, // Interest -> Anticipation -> Vigilance
-    ANGER, // Annoyance -> Anger -> Rage
-    DISGUST, // Boredom -> Disgust -> Loathing
-    SADNESS, // Pensiveness -> Sadness -> Grief
-    SURPRISE, // Distraction -> Surprise -> Amazement
+    JOY, // Serenity -> Joy -> Ecstasy
+    TRUST, // Acceptance -> Trust -> Admiration
     FEAR, // Apprehension -> Fear -> Terror
-    TRUST // Acceptance -> Trust -> Admiration
+    SURPRISE, // Distraction -> Surprise -> Amazement
+    SADNESS, // Pensiveness -> Sadness -> Grief
+    DISGUST, // Boredom -> Disgust -> Loathing
+    ANGER // Annoyance -> Anger -> Rage
 }
